@@ -8,7 +8,17 @@ namespace MoodAnalyserProblem
 {
     public class MoodAnalyser
     {
-        public string analyseMood(string message)
+        string message;
+
+        public MoodAnalyser()
+        {
+            Console.WriteLine("Sad Message in Default Constructor");
+        }
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
+        }
+        public string analyseMood()
         {
             if (message.Contains("Sad"))
                 return "Sad";
