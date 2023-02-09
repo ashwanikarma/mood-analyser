@@ -18,6 +18,13 @@ namespace MoodAnalyserProblem
         {
             this.message = message;
         }
+        //public string analyseMood(string message)
+        //{
+        //    if (message.Contains("Sad"))
+        //        return "Sad";
+        //    else
+        //        return "Happy";
+        //}
         public string analyseMood()
         {
             try
@@ -36,6 +43,6 @@ namespace MoodAnalyserProblem
                 throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_NULL, "Mood Should Not Be Null");
             }
            
-        }
+        } 
     }
 }

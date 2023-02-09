@@ -9,9 +9,9 @@ namespace MoodAnalyserProblem
     public class MoodAnalysisException : Exception
     {   public enum ExceptionType
         {
-            ENTERED_NULL, ENTERED_EMPTY
+            ENTERED_NULL, ENTERED_EMPTY, NO_SUCH_CLASS, NO_SUCH_METHOD
         }
-        ExceptionType type;
+        public ExceptionType type;
         public MoodAnalysisException(ExceptionType type, string message): base(message)
         {
             this.type = type;
