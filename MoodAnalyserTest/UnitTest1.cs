@@ -9,25 +9,27 @@ namespace MoodAnalyserTest
     {
         MoodAnalyserProblem.MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Sad mood");
         [TestMethod]
-        public void GivenSadMood()
+        public void GivenSadMoodShouldReturnSAD()
         {
             //Arrange
-            string expected = "Sad";
+            string expected = "I am in a Sad Mood";
+            MoodAnalyser mood = new MoodAnalyser(expected);
 
             //Act
-            string actual = moodAnalyser.analyseMood();
+            string actual = mood.analyseMood();
 
             //Assert
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void GivenAnyMood()
+        public void GivenAnyMoodShouldReturnHAPPY()
         {
             //Arrange
-            string expected = "Happy";
+            string expected = "I am in Any Mood";
+            MoodAnalyser mood = new MoodAnalyser(expected);
 
             //Act
-            string actual = moodAnalyser.analyseMood();
+            string actual = mood.analyseMood();
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -75,6 +77,24 @@ namespace MoodAnalyserTest
             {
                 Assert.AreEqual("Mood Should Not Be Empty", ex.Message);
             }
+        }
+
+        //Test case 4
+        [TestMethod]
+        public void GivenMoodAnalyzeClasssNameShouldReturnMoodAnalyzeObject()
+        {
+            string message = null;
+            object expected = new MoodAnalyser(message);
+            object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyserProblem.MoodAnalyzer", "MoodAnalyzer");
+            expected.Equals(obj);
+        }
+        //Test Case 5
+        [TestMethod]
+        public void GivenMoodAnalyzeClassNameShouldReturnObjectUsingParameterizedConstructor()
+        {
+            object expected = new MoodAnalyser("HAPPY");
+            object obj = MoodAnalyserFactory.CreatemoodAnalyseUsingParameterizedConstructor("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer", "HAPPY");
+            expected.Equals(obj);
         }
     }
 }
